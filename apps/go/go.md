@@ -27,7 +27,31 @@ go env GOPATH
 ```powershell
 go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.cn,direct
-go env -w GOPATH=D:\code\go
+go env -w GOPATH=D:\code\gobin
+```
+
+命令说明：
+
+- `go env -w GO111MODULE=on`：强制开启 Go Modules 模块模式，`go` 命令通过 `go.mod` 管理依赖（Go 1.16+ 默认即为 on，一般无需再设置；设为 `auto` 表示在含 `go.mod` 的目录下才启用）。
+- `go env -w GOPROXY=...`：指定模块下载代理。默认的 `proxy.golang.org` 国内无法访问，改为七牛云镜像 `goproxy.cn`；逗号后的 `direct` 表示镜像上找不到时回退到源地址直接下载。多个值用 `,` 分隔，按顺序尝试，`off` 表示禁止下载。
+- `go env -w GOPATH=D:\code\go`：指定 GOPATH 工作目录（默认 `C:\Users\<用户>\go`）。`go install` 编译出的可执行文件放入 `GOPATH\bin`，模块缓存（Go 1.20+）默认在 `GOMODCACHE`（`GOPATH\pkg\mod`）。改到非 C 盘可节省系统盘空间。
+
+> `go env -w` 会把配置持久化到用户目录下的环境配置文件；可用 `go env GO111MODULE GOPROXY GOPATH` 查看当前值，用 `go env -u <NAME>` 恢复默认。
+
+其他可用镜像（任选其一替换 GOPROXY）：
+
+```powershell
+# 阿里云
+go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
+
+# 腾讯云
+go env -w GOPROXY=https://goproxy.tencent.com,direct
+
+# 百度
+go env -w GOPROXY=https://goproxy.bj.bcebos.com,direct
+
+# Go 官方（国内需科学上网，仅作对比）
+# go env -w GOPROXY=https://proxy.golang.org,direct
 ```
 
 ## 5. 更新与卸载
@@ -38,6 +62,8 @@ scoop uninstall go
 ```
 
 ## 6. 多版本安装与管理
+
+> 本节为 Scoop 方案。g 与 GOTOOLCHAIN=auto 两种方案的详细对比见 [version-management.md](./version-management.md)。
 
 ### 6.1 添加 versions 仓库
 

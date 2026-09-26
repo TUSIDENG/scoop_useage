@@ -4,6 +4,8 @@
 
 `g` 是一个支持 Linux、macOS、Windows 的 Go 版本管理工具，可以安装、切换、卸载多个 Go 版本。
 
+> 与官方 GOTOOLCHAIN=auto 方案的详细对比见 [version-management.md](./version-management.md)。
+
 ## 1. 安装
 
 > g 暂无官方 Scoop 包，以下两种方式任选其一。

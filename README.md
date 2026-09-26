@@ -11,7 +11,8 @@ scoop_useage/
 ├── apps/                       # 各软件安装示例
 │   ├── go/
 │   │   ├── go.md               # Go 安装（Scoop，完整示例）
-│   │   └── g.md                # g 安装（Go 多版本管理工具 https://github.com/voidint/g）
+│   │   ├── g.md                # g 安装（Go 多版本管理工具 https://github.com/voidint/g）
+│   │   └── version-management.md  # Go 多版本依赖管理（g vs GOTOOLCHAIN=auto）
 │   ├── php.md                  # 待补充
 │   ├── nginx.md                # 待补充
 │   ├── mysql.md                # 待补充
@@ -88,6 +89,7 @@ git config --global --unset https.proxy
 | --- | --- | --- |
 | Go | [apps/go/go.md](./apps/go/go.md) | 完整 |
 | g（Go 多版本管理） | [apps/go/g.md](./apps/go/g.md) | 完整 |
+| Go 多版本依赖管理（g vs GOTOOLCHAIN） | [apps/go/version-management.md](./apps/go/version-management.md) | 完整 |
 | PHP | [apps/php.md](./apps/php.md) | 待补充 |
 | Nginx | [apps/nginx.md](./apps/nginx.md) | 待补充 |
 | MySQL | [apps/mysql.md](./apps/mysql.md) | 待补充 |
